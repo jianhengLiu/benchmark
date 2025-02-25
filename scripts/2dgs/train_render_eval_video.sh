@@ -19,7 +19,7 @@ if [ "$eval" = true ]; then
 else
     command="python /home/jianhengliu/2d-gaussian-splatting/train.py -m $model -s $source --data_device cpu"
     echo "\e[1;32m$command\e[0m"
-    # $command
+    $command
 
     command="python /home/jianhengliu/2d-gaussian-splatting/render.py -m $model -s $source --depth_trunc $depth_trunc"
     echo "\e[1;32m$command\e[0m"

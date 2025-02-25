@@ -11,11 +11,11 @@ if [ "$eval" = true ]; then
     # https://github.com/jianhengLiu/gaussian-splatting -b eval_origin
     command="python /home/jianhengliu/gaussian-opacity-fields/train.py -m $model -s $source --data_device cpu --eval"
     echo "\e[1;32m$command\e[0m"
-    # $command
+    $command
     
     command="python /home/jianhengliu/gaussian-opacity-fields/render.py -m $model -s $source --eval"
     echo "\e[1;32m$command\e[0m"
-    # $command
+    $command
 else
     # https://github.com/jianhengLiu/gaussian-splatting -b eval_origin
     command="python /home/jianhengliu/gaussian-opacity-fields/train.py -m $model -s $source --data_device cpu"
@@ -24,7 +24,7 @@ else
     
     command="python /home/jianhengliu/gaussian-opacity-fields/render.py -m $model -s $source"
     echo "\e[1;32m$command\e[0m"
-    # $command
+    $command
 fi
 
 command="python /home/jianhengliu/gaussian-opacity-fields/extract_mesh.py -m $model --iteration 30000"

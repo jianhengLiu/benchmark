@@ -14,3 +14,7 @@ sh $parent_path/train_render_eval_video.sh /home/jianhengliu/Datasets/FAST_LIVO2
 sh $parent_path/train_render_eval_video.sh /home/jianhengliu/Datasets/FAST_LIVO2/drive /home/jianhengliu/output/2dgs/fast_livo2/drive true 180
 
 sh $parent_path/train_render_eval_video.sh /home/jianhengliu/Datasets/FAST_LIVO2/station_txt /home/jianhengliu/output/2dgs/fast_livo2/station true 60
+
+sh $parent_path/train_render_eval_video.sh /home/jianhengliu/Datasets/FAST_LIVO2/sysu /home/jianhengliu/output/2dgs/fast_livo2/sysu true 60
+
+sh $parent_path/train_render_eval_video.sh /home/jianhengliu/Datasets/FAST_LIVO2/cbd /home/jianhengliu/output/2dgs/fast_livo2/cbd true 120
