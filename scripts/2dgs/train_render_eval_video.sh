@@ -5,8 +5,8 @@ depth_trunc=$4
 
 parent_path=$(dirname "$0")
 
-conda init
-conda activate surfel_splatting
+# conda init
+# conda activate surfel_splatting
 
 if [ "$eval" = true ]; then
     command="python /home/jianhengliu/2d-gaussian-splatting/train.py -m $model -s $source --data_device cpu --eval"
@@ -30,6 +30,8 @@ fi
 python $parent_path/../../evaluation/image_metrics/metrics.py -m $model/train/ours_30000
 python $parent_path/../../evaluation/image_metrics/metrics.py -m $model/test/ours_30000
 python $parent_path/../../evaluation/image_metrics/metrics.py -m $model/eval/ours_30000
+
+python $parent_path/../../evaluation/structure_metrics/evaluator.py --pred_mesh $model/train/ours_30000/fuse_post.ply --gt_pcd $source/../cull_replica_mesh/$(basename $source)_culled.ply
 
 ffmpeg -framerate 30 -i $model/train/ours_30000/renders/%05d.png -c:v h264 -pix_fmt yuv420p $model/train/output.mp4
 ffmpeg -framerate 2 -i $model/test/ours_30000/renders/%05d.png -c:v h264 -pix_fmt yuv420p $model/test/output.mp4
